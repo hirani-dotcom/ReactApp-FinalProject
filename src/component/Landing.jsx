@@ -1,7 +1,9 @@
 import React from "react";
 import moviecollage from "../assets/movies-collage.jpg";
+import Menu from "./Menu";
+import Movies from "./Movies";
 
-const Header = () => {
+const Landing = () => {
     return (
         <>
             <div>
@@ -27,4 +29,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Landing;

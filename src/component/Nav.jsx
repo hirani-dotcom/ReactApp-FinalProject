@@ -16,45 +16,43 @@ const Nav = () => {
     };
 
     return (
-        <>
-            <section id="landing">
-                <nav>
-                    <div className="nav__container">
-                        <img className="logo" src={logo} alt="" />
-                        <ul className="nav__links">
-                            <li>
-                                <Link to="/" className="nav__link">
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/movies"
-                                    className="nav__link"
-                                    onClick={handleMovieSearch}
-                                >
-                                    Movie Search
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/"
-                                    className="nav__link nav__link--primary no-cursor"
-                                >
-                                    Contact
-                                </Link>
-                            </li>
-                            <button
-                                className="btn__menu menu--open"
-                                onClick={handleMenuClick}
+        <section id="landing">
+            <nav>
+                <div className="nav__container">
+                    <img className="logo" src={logo} alt="" />
+                    <ul className="nav__links">
+                        <li>
+                            <a href="/" className="nav__link">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/movies"
+                                className="nav__link"
+                                onClick={handleMovieSearch}
                             >
-                                <FontAwesomeIcon icon={faBars} />
-                            </button>
-                        </ul>
-                    </div>
-                </nav>
-            </section>
-        </>
+                                Movie Search
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/"
+                                className="nav__link nav__link--primary no-cursor"
+                            >
+                                Contact
+                            </a>
+                        </li>
+                        <button
+                            className="btn__menu menu--open"
+                            onClick={handleMenuClick}
+                        >
+                            <FontAwesomeIcon icon={faBars} />
+                        </button>
+                    </ul>
+                </div>
+            </nav>
+        </section>
     );
 };
 

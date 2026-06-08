@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+import React, { Link } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
@@ -21,32 +21,31 @@ const Menu = () => {
     };
     return (
         <>
-            <section id="menu" className="menu--open">
-                <div>
+            <section id="menu" >
+                <div className="menu--open">
                     <button
                         className="btn__menu btn__menu--close"
                         onClick={handleGoBack}
                     >
                         <FontAwesomeIcon icon={faTimes} />
                     </button>
-                    <ul className="menu__links">
+                    <ul className="menu__links menu__backdrop">
                         <li className="menu__list">
-                            <Link
-                                to="/"
+                            <a href = "/"
                                 className="menu__link"
                                 onClick={handleToLanding}
                             >
                                 Home
-                            </Link>
+                            </a>
                         </li>
                         <li className="menu__list">
-                            <Link
-                                to="/movies"
+                            <a
+                                href="/movies"
                                 className="menu__link"
                                 onClick={handleToMovies}
                             >
                                 Movie Search
-                            </Link>
+                            </a>
                         </li>
                         <li className="menu__list">
                             <a className="menu__link no-cursor">Contacts</a>
