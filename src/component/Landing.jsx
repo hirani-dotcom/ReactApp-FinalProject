@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import moviecollage from "../assets/movies-collage.jpg";
 import Menu from "./Menu";
 import Movies from "./Movies";
 
 const Landing = () => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <>
             <div>

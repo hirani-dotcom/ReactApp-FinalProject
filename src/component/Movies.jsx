@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import Modal from "./Modal";
+import NoImage from "../assets/no_poster.avif";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Movies = () => {
 
-    
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Replace with your OMDb API key
     const API_KEY = "300143c";
 
     const [query, setQuery] = useState("");
@@ -17,7 +20,7 @@ const Movies = () => {
     // Fetch movies by title
     const fetchMovies = async () => {
         if (!query.trim()) {
-            setError("*** Please enter a movie keyword. ***");
+            setError("~~~ Please enter a movie keyword. ~~~");
             return;
         }
         setError("");
@@ -84,30 +87,25 @@ const Movies = () => {
 
                 <h2>
                     Find your
-                    <span className="purple"> All-Time Favorite </span>
+                    <strong> All-Time Favorite </strong>
                     movies
                     <br />
                     with 🎬 Silver Screen World
                 </h2>
 
-                {/* Search Input */}
                 <div className="search-container">
                     <input
-                        type="text"
+                        type="text" className="input__size"
                         placeholder="Enter movie title..."
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
-                        style={{ padding: "8px", width: "250px" }}
                     />
 
-                    {/* Sort Option */}
-                    <select
+                    <select className="sortbox__size"
                         value={sortOption}
                         onChange={(e) => setSortOption(e.target.value)}
-                        style={{ marginLeft: "10px", padding: "8px" }}
                     >
                         <option value="Default" disabled>
-                            Sort by . . .
                         </option>
                         <option value="a-z">A-Z</option>
                         <option value="z-a">Z-A</option>
@@ -115,24 +113,22 @@ const Movies = () => {
                         <option value="new to old">New to Old</option>
                     </select>
 
-                    {/* Search Button */}
                     <button
                         onClick={fetchMovies}
-                        style={{ marginLeft: "10px", padding: "8px 12px" }}
+                        className="btn search__btn"
                     >
                         Search
                     </button>
                 </div>
 
-                {/* Error Message */}
                 {error && (
-                    <p style={{ color: "red", textAlign: "center" }}>{error}</p>
+                    <p className="error-message">{error}</p>
                 )}
 
                 {/* Loading */}
                 {loading && <p>Loading...</p>}
 
-                {/* Movie List */}
+                {/* Movies List */}
                 <div className="movies">
                     {movies.map((movie) => (
                         <div
@@ -142,7 +138,7 @@ const Movies = () => {
                         >
                             <img
                                 src={
-                                    movie.Poster !== "N/A"
+                                    movie.Poster !== "(Not Found)"
                                         ? movie.Poster
                                         : "https://via.placeholder.com/150"
                                 }
@@ -155,13 +151,13 @@ const Movies = () => {
                     ))}
                 </div>
 
-                {/* Movie Details */}
+                {/* Movie Modal */}
                 {selectedMovie && (
-                    <div className="overlay">
+                    <div className="modal-overlay">
                         <button
                             className="overlay__close"
                         >
-                            Choose Another or Search Again
+                            Choose Another Movie or Search Again
                         </button>
                         <figure className="overlay__img">
                             <img
@@ -214,7 +210,11 @@ const Movies = () => {
                                 </span>
                             </p>
                         </div>
+                    <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+      </Modal>
+      
                     </div>
+
                 )}
             </div>
         </section>

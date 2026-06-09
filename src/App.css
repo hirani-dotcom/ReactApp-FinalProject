@@ -82,11 +82,72 @@ button:active {
 
 .error-message {
     color: red;
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 900;
     text-align: center;
     padding-bottom: 40px;
 }
+
+/* Auth Modal */
+.modal__container {
+    height: auto;
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 24px;
+    display:flex;
+    align-items: center; 
+    justify-content: center;
+    background: black;
+    color: white;
+    z-index: 50;
+}
+
+.reg-btn {
+  padding: 12px 24px;
+  margin: 0 auto;
+  max-width: fit-content;
+  font-size: 16px;
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.auth__btn--close {
+    font-size: 20px;
+}
+
+.signin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom:48px;
+}
+
+.search-container__login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+    gap: 12px;
+    padding: 20px;
+}
+
+.input__box {
+    height: 40px;
+}
+
+input {
+    justify-content: center;
+    padding: 0 12px;
+    margin: 0 12px;
+    gap: 12px;
+}
+
+/* Navigation Bar */
 
 .logo {
     padding: 16px;
@@ -154,6 +215,8 @@ button:active {
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%;
+    max-width: 1200px;
     z-index: 100;
     display: flex;
     align-items: center;
@@ -197,17 +260,13 @@ LANDING
 
 */
 
-#landing {
-    background-color: rgba(115, 166, 214, 0.1);
-}
-
 header {
     height: 100%;
 }
 
 .header__container {
     width: 100%;
-    max-width: 720px;
+    max-width: 1200px;
     margin: 60px auto;
     height: 100%;
     display: flex;
@@ -229,6 +288,10 @@ header {
 
 .container {
     padding: 56px 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
 }
 
 .row {
@@ -294,7 +357,10 @@ MOVIES
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     padding: 28px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .movie {
@@ -339,21 +405,38 @@ MOVIES
 .search-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 100%;
     margin-bottom: 40px;
-    gap: 24px;
+    gap: 12px;
     padding: 20px;
 }
 
-.overlay {
-    position: absolute;
-    background-color: #242424;
+.search__btn {
+    height: 36px;
+    padding: 6px 12px;
+}
+
+.input__size {
+    width: 200px;
+    height: 36px;
+}
+
+.sortbox__size {
+    height: 36px;
+}
+
+.modal-overlay {
+    position: fixed;
     background: #242424;
-    top: 10%;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 11%;
+    left: 1%;
+    right: 1%;
+    bottom: 1%;
     z-index: 100;
     height: 50%;
+    max-width: 1200px;
+    margin: 0 auto;
     color: white;
     font-size: 16px;
     display: flex;
@@ -362,10 +445,30 @@ MOVIES
     transition: opacity 0.3s ease;
 }
 
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  min-width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
 .overlay__close {
     position: absolute;
     background-color: #242424;
-    width: 150px;
+    width: 200px;
     top: 5px;
     left: 20px;
     padding: 8px;
@@ -451,6 +554,16 @@ footer {
 }
 
 /* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
+
+@media (max-width: 840px) {
+    input {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;   
+        margin: 12px 0;
+    }
+}
+
 @media (max-width: 768px) {
     .header__description {
         padding: 0 24px;

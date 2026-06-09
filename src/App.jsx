@@ -6,6 +6,7 @@ import Landing from "./component/Landing";
 import Menu from "./component/Menu";
 import Movies from "./component/Movies";
 import Footer from "./component/Footer";
+import SignIn from "./component/SignIn";
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
                 <Route path="/" exact element={<Landing />} />
                 <Route path="/menu" element={<Menu />} />
                 <Route path="/movies" element={<Movies />} />
+                <Route path="/Signin" element={<SignIn />} />
             </Routes>
             <Footer />
         </div>

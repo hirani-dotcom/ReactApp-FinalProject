@@ -17,22 +17,21 @@ const Footer = () => {
             <footer>
                 <div className="container">
                     <div className="row row__column">
-                        <Link to="/">
+                        <a href="/">
                             <figure className="footer__logo">
                                 <img src={logo} className="footer__logo--img" />
                             </figure>
-                        </Link>
+                        </a>
                         <div className="footer__list">
-                            <Link to="/" className="footer__link">
+                            <a href="/" className="footer__link">
                                 Home
-                            </Link>
-                            <Link
-                                to="/movies"
+                            </a>
+                            <a href="/movies"
                                 className="footer__link"
                                 onClick={handleMovieSearch}
                             >
                                 Movies
-                            </Link>
+                            </a>
                             <a className="footer__link no-cursor">About</a>
                             <a className="footer__link no-cursor">Contact</a>
                         </div>

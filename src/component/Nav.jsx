@@ -37,10 +37,10 @@ const Nav = () => {
                         </li>
                         <li>
                             <a
-                                href="/"
-                                className="nav__link nav__link--primary no-cursor"
+                                href="/signin"
+                                className="nav__link nav__link--primary"
                             >
-                                Contact
+                                Sign In/Up
                             </a>
                         </li>
                         <button
