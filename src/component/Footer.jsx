@@ -5,6 +5,10 @@ import { useNavigate, Link } from "react-router-dom";
 const Footer = () => {
     const navigate = useNavigate();
 
+    const handleHome = () => {
+        navigate("/");
+    };
+
     const handleMenuClick = () => {
         navigate("/menu");
     };
@@ -12,6 +16,7 @@ const Footer = () => {
     const handleMovieSearch = () => {
         navigate("/movies");
     };
+
     return (
         <>
             <footer>
@@ -19,14 +24,14 @@ const Footer = () => {
                     <div className="row row__column">
                         <a href="/">
                             <figure className="footer__logo">
-                                <img src={logo} className="footer__logo--img" />
+                                <img src={logo} className="footer__logo--img no-cursor" />
                             </figure>
                         </a>
                         <div className="footer__list">
-                            <a href="/" className="footer__link">
+                            <a href="" className="footer__link" onClick={handleHome}>
                                 Home
                             </a>
-                            <a href="/movies"
+                            <a href=""
                                 className="footer__link"
                                 onClick={handleMovieSearch}
                             >

@@ -8,7 +8,7 @@ const SignIn = () => {
   return (
    <>
     <div>
-      <section id="#signin">
+      <section id="signin">
          <div className='signin'>
             <h1>Welcome</h1>
             <button className='reg-btn'

@@ -7,6 +7,10 @@ import { Link, useNavigate } from "react-router-dom";
 const Nav = () => {
     const navigate = useNavigate();
 
+    const handleHome = () => {
+        navigate("/");
+    };
+
     const handleMenuClick = () => {
         navigate("/menu");
     };
@@ -15,6 +19,10 @@ const Nav = () => {
         navigate("/movies");
     };
 
+    const handleSignin = () => {
+        navigate("/signin");
+    }
+
     return (
         <section id="landing">
             <nav>
@@ -22,13 +30,13 @@ const Nav = () => {
                     <img className="logo" src={logo} alt="" />
                     <ul className="nav__links">
                         <li>
-                            <a href="/" className="nav__link">
+                            <a href="" className="nav__link" onClick={handleHome}>
                                 Home
                             </a>
                         </li>
                         <li>
                             <a
-                                href="/movies"
+                                href=""
                                 className="nav__link"
                                 onClick={handleMovieSearch}
                             >
@@ -37,8 +45,8 @@ const Nav = () => {
                         </li>
                         <li>
                             <a
-                                href="/signin"
-                                className="nav__link nav__link--primary"
+                                href=""
+                                className="nav__link nav__link--primary" onClick={handleSignin}
                             >
                                 Sign In/Up
                             </a>
