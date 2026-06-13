@@ -2,26 +2,31 @@ import React, { useState } from "react";
 import logo from "../assets/SSW-logo.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "./context/AuthContext";
+import { doSignOut } from "../firebase/auth";
 
 const Nav = () => {
+    const { user, userData, error, setError, login, register, logout } =
+        useAuth();
+
     const navigate = useNavigate();
 
-    const handleHome = () => {
+    const toHome = () => {
         navigate("/");
     };
 
-    const handleMenuClick = () => {
+    const toMenuClick = () => {
         navigate("/menu");
     };
 
-    const handleMovieSearch = () => {
+    const toMovieSearch = () => {
         navigate("/movies");
     };
 
-    const handleSignin = () => {
+    const toSignin = () => {
         navigate("/signin");
-    }
+    };
 
     return (
         <section id="landing">
@@ -30,30 +35,49 @@ const Nav = () => {
                     <img className="logo" src={logo} alt="" />
                     <ul className="nav__links">
                         <li>
-                            <a href="" className="nav__link" onClick={handleHome}>
-                                Home
+                            <a href="" className="nav__link" onClick={toHome}>
+                                {user ? "Home" : null}
                             </a>
                         </li>
                         <li>
                             <a
                                 href=""
                                 className="nav__link"
-                                onClick={handleMovieSearch}
+                                onClick={toMovieSearch}
                             >
-                                Movie Search
+                                {user ? "Movies Search" : null}
                             </a>
                         </li>
                         <li>
-                            <a
-                                href=""
-                                className="nav__link nav__link--primary" onClick={handleSignin}
-                            >
-                                Sign In/Up
-                            </a>
+                            {user ? (
+                                <>
+                                    <a
+                                        alt="Log Out"
+                                        onClick={() => {
+                                            doSignOut().then(() => {
+                                                toSignin;
+                                            });
+                                        }}
+                                        className="nav__link reg-btn"
+                                    >
+                                        {user.email[0].toUpperCase()}
+                                    </a>
+                                </>
+                            ) : (
+                                <>
+                                    <a
+                                        href=""
+                                        className="nav__link reg-btn"
+                                        onClick={toSignin}
+                                    >
+                                        Sign In
+                                    </a>
+                                </>
+                            )}
                         </li>
                         <button
                             className="btn__menu menu--open"
-                            onClick={handleMenuClick}
+                            onClick={toMenuClick}
                         >
                             <FontAwesomeIcon icon={faBars} />
                         </button>

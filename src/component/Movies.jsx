@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import Modal from "./Modal";
+// import Modal from "./Modal";
 import NoImage from "../assets/no_poster.avif";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "./context/AuthContext";
 
-const Movies = () => {
-
+const Movies = ({ isOpen, onClose }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const { user, userData, error, setError, login, register, logout } =
+        useAuth();
 
     const API_KEY = "300143c";
 
@@ -14,8 +17,11 @@ const Movies = () => {
     const [movies, setMovies] = useState([]);
     const [sortOption, setSortOption] = useState("alpha");
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+
+    const clearSelection = () => {
+        setSelectedMovie(null);
+    };
 
     // Fetch movies by title
     const fetchMovies = async () => {
@@ -83,47 +89,41 @@ const Movies = () => {
     return (
         <section id="movies">
             <div className="container">
-                <h1>Movie Search</h1>
-
                 <h2>
-                    Find your
-                    <strong> All-Time Favorite </strong>
-                    movies
-                    <br />
+                    Welcome back <span className="purple">{user.email}</span>
+                </h2>
+                <h2>
+                    Find your All-Time Favorite Movies Here <br />
                     with 🎬 Silver Screen World
                 </h2>
 
                 <div className="search-container">
                     <input
-                        type="text" className="input__size"
+                        type="text"
+                        className="input__size"
                         placeholder="Enter movie title..."
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                     />
 
-                    <select className="sortbox__size"
+                    <select
+                        className="sortbox__size"
                         value={sortOption}
                         onChange={(e) => setSortOption(e.target.value)}
                     >
-                        <option value="Default" disabled>
-                        </option>
+                        <option value="Default" disabled></option>
                         <option value="a-z">A-Z</option>
                         <option value="z-a">Z-A</option>
                         <option value="old to new">Old to New</option>
                         <option value="new to old">New to Old</option>
                     </select>
 
-                    <button
-                        onClick={fetchMovies}
-                        className="btn search__btn"
-                    >
+                    <button onClick={fetchMovies} className="btn search__btn">
                         Search
                     </button>
                 </div>
 
-                {error && (
-                    <p className="error-message">{error}</p>
-                )}
+                {error && <p className="error-message">{error}</p>}
 
                 {/* Loading */}
                 {loading && <p>Loading...</p>}
@@ -155,9 +155,10 @@ const Movies = () => {
                 {selectedMovie && (
                     <div className="modal-overlay">
                         <button
-                            className="overlay__close"
+                            className="modal-close"
+                            onClick={clearSelection}
                         >
-                            Choose Another Movie or Search Again
+                            <FontAwesomeIcon icon={faTimes} />
                         </button>
                         <figure className="overlay__img">
                             <img
@@ -210,11 +211,8 @@ const Movies = () => {
                                 </span>
                             </p>
                         </div>
-                    <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-      </Modal>
-      
+                        {/* <Modal selectedMovie={selectedMovie} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}
                     </div>
-
                 )}
             </div>
         </section>
