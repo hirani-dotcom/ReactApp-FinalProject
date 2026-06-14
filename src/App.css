@@ -77,11 +77,11 @@ button:active {
 }
 
 .purple {
-    color: #7342d6;
+    color: purple;
 }
 
 .error-message {
-    color: white;
+    color: rgb(156, 154, 154);
     font-size: 28px;
     font-weight: 900;
     text-align: center;
@@ -90,8 +90,8 @@ button:active {
 
 /* Auth Modal */
 
-.authform__container { 
-    max-width:100%; 
+.authform__container {
+    max-width: 100%;
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -99,13 +99,13 @@ button:active {
 }
 
 .authform__container--subsection {
-    margin-bottom: 15px ;
+    margin-bottom: 15px;
 }
 
 .authform__container--label {
     display: block;
     margin-bottom: 5px;
-    margin-top:15px ;
+    margin-top: 15px;
 }
 
 .authform__container--input {
@@ -116,15 +116,15 @@ button:active {
 }
 
 .reg-btn {
-  padding: 8px 12px;
-  margin: 0 auto;
-  max-width: fit-content;
-  font-size: 16px;
-  background-color: purple;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
+    padding: 8px 12px;
+    margin: 0 auto;
+    max-width: fit-content;
+    font-size: 16px;
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
 }
 
 .auth__btn--close {
@@ -135,7 +135,7 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-bottom:48px;
+    padding-bottom: 48px;
 }
 
 .search-container__login {
@@ -325,6 +325,7 @@ header {
 
 .movies__loading {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding-bottom: 40px;
@@ -332,32 +333,10 @@ header {
     color: #7342d6;
 }
 
-.movies__loading--spinner {
-    display: none !important;
-}
-
-.movies__loading .movies__loading--spinner {
-    display: block !important;
-}
-
-.fa-spinner {
-    font-size: 80px;
-    animation: rotate 700ms linear infinite;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 .loading {
     text-align: center;
-    font-size: 48px;
-    color: red;
+    font-size: 40px;
+    color: #7342d6;
 }
 
 /* 
@@ -459,24 +438,23 @@ MOVIES
 }
 
 .modal-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  min-width: 300px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    min-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  border: white;
-  background: white;
-  font-size: 1.5rem;
-  cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: white;
+    background: white;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
-
 
 .overlay__close {
     position: absolute;
@@ -568,7 +546,7 @@ footer {
     input {
         width: fit-content;
         display: flex;
-        flex-direction: column;   
+        flex-direction: column;
         margin: 12px 0;
     }
 }

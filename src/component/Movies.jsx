@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import Modal from "./Modal";
 import NoImage from "../assets/no_poster.avif";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "./context/AuthContext";
 
 const Movies = ({ isOpen, onClose }) => {
@@ -126,7 +126,12 @@ const Movies = ({ isOpen, onClose }) => {
                 {error && <p className="error-message">{error}</p>}
 
                 {/* Loading */}
-                {loading && <p>Loading...</p>}
+                {loading && (
+                    <div className="movies__loading">
+                        <FontAwesomeIcon icon={faSpinner} spin />
+                        <br /> Retrieving your information...
+                    </div>
+                )}
 
                 {/* Movies List */}
                 <div className="movies">
