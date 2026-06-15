@@ -59,16 +59,21 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    font-size: 24px;
+    text-align: center;
+}
+
 button {
     cursor: pointer;
 }
 
-button:active {
-    transform: translateY(1px);
+button:active, .btn:active, .reg-btn:active {
+    transform: translateY(3px);
 }
 
 .btn {
-    background-color: #7342d6;
+    background-color: purple;
     color: white;
     padding: 12px 24px;
     font-size: 20px;
@@ -91,7 +96,8 @@ button:active {
 /* Auth Modal */
 
 .authform__container {
-    max-width: 100%;
+    width: 450px;
+    max-width: 80%;
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -99,13 +105,14 @@ button:active {
 }
 
 .authform__container--subsection {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .authform__container--label {
     display: block;
-    margin-bottom: 5px;
     margin-top: 15px;
+    color: purple;
+    font-weight: 500;
 }
 
 .authform__container--input {
@@ -124,6 +131,7 @@ button:active {
     color: white;
     border: none;
     border-radius: 50px;
+    text-decoration: none !important;
     cursor: pointer;
 }
 
@@ -135,7 +143,7 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-bottom: 48px;
+    text-decoration: none !important;
 }
 
 .search-container__login {
@@ -160,6 +168,18 @@ input {
     gap: 12px;
 }
 
+.toggle__container {
+margin-top: 12px ;
+}
+
+.reg-sign__toggle {
+    text-align: center;
+    font-weight: 900;
+    cursor: pointer;
+    color: purple;
+
+}
+
 /* Navigation Bar */
 
 .logo {
@@ -180,6 +200,10 @@ input {
     background-color: #131111;
 }
 
+.nav__links {
+    align-items: center;
+}
+
 .nav__link {
     margin-left: 16px;
     text-decoration: none;
@@ -193,21 +217,38 @@ input {
     text-decoration: underline;
 }
 
-.nav__link--primary {
-    border: 2px solid white;
-    border-radius: 4px;
-}
-
-.nav__link--primary:hover {
-    text-decoration: none;
-}
-
 .btn__menu {
     background-color: #242424;
     font-size: 40px;
     border: none;
     color: white;
     display: none;
+}
+
+.logout {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+}
+
+.logout-text {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;  
+  position: absolute;
+  font-size: medium;
+  bottom: 125%; 
+  left: 50%;
+  transform: translateY(200%) translatex(-50%);
+  color: #fff;
+  padding: 12px;
+  white-space: nowrap;
+}
+
+.logout:hover .logout-text {
+  visibility: visible;
+  opacity: 1;
 }
 
 .btn__menu--close {
@@ -277,9 +318,9 @@ header {
     height: 100%;
 }
 
-.header__container {
+.about__container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 500px;
     margin: 60px auto;
     height: 100%;
     display: flex;
@@ -287,24 +328,30 @@ header {
     justify-content: space-around;
 }
 
-.header__description {
+.about__description {
+    margin: 0 192px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
 }
 
-.header__img--wrapper {
+.about__description p {
+    line-height: 1.8;
+}
+
+.about__img--wrapper {
     padding: 40px;
     margin: 0 48px;
     text-align: center;
 }
 
 .container {
-    padding: 56px 0;
+    padding: 56px;
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
     justify-content: center;
+    text-align: center;
 }
 
 .row {
@@ -321,6 +368,7 @@ header {
 
 .no-cursor {
     cursor: not-allowed;
+    text-decoration: line-through;
 }
 
 .movies__loading {
@@ -406,7 +454,7 @@ MOVIES
 
 .search__btn {
     height: 36px;
-    padding: 6px 12px;
+    padding: 6px 70px;
 }
 
 .input__size {
@@ -415,6 +463,7 @@ MOVIES
 }
 
 .sortbox__size {
+    width: 100px;
     height: 36px;
 }
 
@@ -542,18 +591,24 @@ footer {
 
 /* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
 
-@media (max-width: 840px) {
+@media (max-width: 960px) {
     input {
         width: fit-content;
         display: flex;
         flex-direction: column;
         margin: 12px 0;
     }
+.about__description {
+    margin: 0 96px;
+}
+    .movie {
+        width: 50%;
+    }
 }
 
 @media (max-width: 768px) {
-    .header__description {
-        padding: 0 24px;
+    .about__description {
+        margin: 0 48px;
     }
 
     h1 {
@@ -568,9 +623,17 @@ footer {
         font-size: 14px;
     }
 
-    .movie {
-        width: 50%;
-    }
+.movie {
+    width: calc(100%/3);
+}
+
+.movie__img {
+    width: 115px;
+}
+
+.movie__title, .movie__year {
+    font-size: medium;
+}
 }
 
 /* SMALL PHONES, LARGE SMARTPHONES */
@@ -597,4 +660,26 @@ footer {
         align-items: center;
         gap: 12px;
     }
+
+    .sortbox__size {
+    width: 200px;
+    height: 36px;
+    margin: 12px 0;
+}
+    
+.about__description {
+    margin: 0 auto;
+}
+
+.about__description p {
+    font-size: 14px;
+}
+
+.movie {
+    width: 50%;
+}
+
+.movie__title, .movie__year {
+    font-size: small;
+}
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/SSW-logo.jpeg";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import { doSignOut } from "../firebase/auth";
 
@@ -10,15 +10,15 @@ const Footer = () => {
 
     const navigate = useNavigate();
 
-    const handleHome = () => {
-        navigate("/");
+    const toAbout = () => {
+        navigate("/about");
     };
 
     const handleMenuClick = () => {
         navigate("/menu");
     };
 
-    const handleMovieSearch = () => {
+    const toMovies = () => {
         navigate("/movies");
     };
 
@@ -31,7 +31,7 @@ const Footer = () => {
             <footer>
                 <div className="container">
                     <div className="row row__column">
-                        <a href="/">
+                        <a href="">
                             <figure className="footer__logo">
                                 <img
                                     src={logo}
@@ -45,14 +45,7 @@ const Footer = () => {
                                     <a
                                         href=""
                                         className="footer__link"
-                                        onClick={handleHome}
-                                    >
-                                        Home
-                                    </a>
-                                    <a
-                                        href=""
-                                        className="footer__link"
-                                        onClick={handleMovieSearch}
+                                        onClick={toMovies}
                                     >
                                         Movies
                                     </a>
@@ -67,8 +60,10 @@ const Footer = () => {
                                 </a>
                             )}
 
-                            <a className="footer__link no-cursor">About</a>
+                            <a href="" className="footer__link" onClick={toAbout}>About</a>
                             <a className="footer__link no-cursor">Contact</a>
+                            <a className="footer__link no-cursor">Legal</a>
+                            <a className="footer__link no-cursor">Disclaimer</a>
                         </div>
                         <div className="footer__copyright">
                             Copyright © 2026 Silver Screen World

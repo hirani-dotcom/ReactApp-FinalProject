@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
                         setUserData(docSnap.data());
                     }
                 } catch (err) {
-                    setError(
+                    console.log(
                         "Failed to synchronize user document from database.",
                     );
                 }
@@ -81,6 +81,7 @@ export function AuthProvider({ children }) {
                 auth,
                 email,
                 password,
+                username,
             );
             const newUser = userCredential.user;
 

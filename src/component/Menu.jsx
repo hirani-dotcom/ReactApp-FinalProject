@@ -18,15 +18,16 @@ const Menu = () => {
             console.error("Navigation error:", error);
         }
     };
-    const handleToLanding = () => {
-        navigate({ pathname: "/" });
-    };
-    const handleToMovies = () => {
-        navigate({ pathname: "/movies" });
+    const toMovies = () => {
+        navigate("/movies");
     };
 
     const toSignin = () => {
         navigate("/signin");
+    };
+
+    const toAbout = () => {
+        navigate("/about");
     };
 
     return (
@@ -44,9 +45,9 @@ const Menu = () => {
                             <a
                                 href=""
                                 className="menu__link"
-                                onClick={handleToLanding}
+                                onClick={toAbout}
                             >
-                                Home
+                                About
                             </a>
                         </li>
                         <li className="menu__list">
@@ -55,7 +56,7 @@ const Menu = () => {
                                     <a
                                         href=""
                                         className="menu__link"
-                                        onClick={handleToMovies}
+                                        onClick={toMovies}
                                     >
                                         Movie Search
                                     </a>
@@ -70,7 +71,7 @@ const Menu = () => {
                                     <a
                                         onClick={() => {
                                             doSignOut().then(() => {
-                                                toMovieSearch;
+                                                toSignin;
                                             });
                                         }}
                                         className=" menu__link reg-btn"

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useAuth } from "../component/context/AuthContext";
 import Movies from "./Movies";
+import { useNavigate } from "react-router-dom";
 
 export default function AuthForm() {
     const { user, userData, error, setError, login, register, logout } =
@@ -10,14 +11,20 @@ export default function AuthForm() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [username, setUsername] = useState("");
+    const [name, setName] = useState("");
+
+    const navigate = useNavigate();
+
+    const toMovies = () => {
+        navigate("/movies");
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         let success = false;
 
         if (isRegistering) {
-            success = await register(email, password, username);
+            success = await register(email, password, formattedName);
         } else {
             success = await login(email, password);
         }
@@ -30,7 +37,6 @@ export default function AuthForm() {
     const clearInputs = () => {
         setEmail("");
         setPassword("");
-        setUsername("");
         setError("");
     };
 
@@ -39,8 +45,8 @@ export default function AuthForm() {
     }
 
     return (
-        <div className="authform__container">
-            <h2>{isRegistering ? "Create an Account" : "Sign In"}</h2>
+        <div id="signin" className="authform__container">
+            <h2 className="purple">{isRegistering ? "Create an Account" : "Sign In"}</h2>
 
             {error && <div className="error-message">{error}</div>}
 
@@ -52,8 +58,8 @@ export default function AuthForm() {
                         </label>
                         <input
                             type="text"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            value={displayName}
+                            onChange={(e) => formattedName(e.target.value)}
                             className="authform__container--input"
                         />
                     </div>
@@ -86,20 +92,19 @@ export default function AuthForm() {
                 </button>
             </form>
 
-            <p>
+            <p className="toggle__container">
                 {isRegistering
                     ? "Already have an account?"
                     : "Need an account?"}{" "}
-                <button
-                    type="button"
+                <a
                     onClick={() => {
                         setIsRegistering(!isRegistering);
                         clearInputs();
                     }}
-                    className="reg-btn"
+                    className="reg-sign__toggle"
                 >
                     {isRegistering ? "Sign In Here" : "Register Here"}
-                </button>
+                </a>
             </p>
         </div>
     );
