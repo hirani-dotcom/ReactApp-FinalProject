@@ -14,7 +14,7 @@ const App = () => {
         <div>
             <Nav />
             <Routes>
-                <Route path="/ReactApp-FinalProject/" element={<About />} />
+                <Route path="/" element={<About />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/menu" element={<Menu />} />
                 <Route path="/movies" element={<Movies />} />
