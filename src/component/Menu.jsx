@@ -3,7 +3,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import React, { Link } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
-import { doSignOut } from "../firebase/auth";
+import { doSignOut } from "../firebase/firebase";
 
 const Menu = () => {
     const { user, userData, error, setError, login, register, logout } =
@@ -43,7 +43,6 @@ const Menu = () => {
                     <ul className="menu__links menu__backdrop">
                         <li className="menu__list">
                             <a
-                                href=""
                                 className="menu__link"
                                 onClick={toAbout}
                             >
@@ -54,7 +53,6 @@ const Menu = () => {
                             {user ? (
                                 <>
                                     <a
-                                        href=""
                                         className="menu__link"
                                         onClick={toMovies}
                                     >
@@ -69,10 +67,7 @@ const Menu = () => {
                             {user ? (
                                 <>
                                     <a
-                                        onClick={() => {
-                                            doSignOut().then(() => {
-                                                toSignin;
-                                            });
+                                        onClick={() => { doSignOut(); navigate("/signout"); 
                                         }}
                                         className=" menu__link reg-btn"
                                     >

@@ -2,7 +2,6 @@ import React from "react";
 import logo from "../assets/SSW-logo.jpeg";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
-import { doSignOut } from "../firebase/auth";
 
 const Footer = () => {
     const { user, userData, error, setError, login, register, logout } =
