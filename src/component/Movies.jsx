@@ -231,7 +231,6 @@ const Movies = ({ isOpen, onClose }) => {
                                         </span>
                                     </p>
                                 </div>
-                                {/* <Modal selectedMovie={selectedMovie} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}
                             </div>
                         )}
                     </div>

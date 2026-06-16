@@ -31,9 +31,6 @@ export function AuthProvider({ children }) {
                         setUserData(docSnap.data());
                     }
                 } catch (err) {
-                    console.log(
-                        "Failed to synchronize user document from database.",
-                    );
                 }
             } else {
                 setUserData(null);
@@ -60,7 +57,7 @@ export function AuthProvider({ children }) {
         }
 
         if (password.length < 6) {
-            setError("Password must contain at least 6 characters.");
+            setError("Password must contain at least 6 characters (mix of uppercase, lowercase & number).");
             return false;
         }
 

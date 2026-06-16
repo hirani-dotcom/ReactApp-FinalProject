@@ -9,13 +9,12 @@ import Footer from "./component/Footer";
 import SignOutScreen from "./component/SignOutScreen";
 import AuthForm from "./component/AuthForm";
 
-
 const App = () => {
     return (
         <div>
             <Nav />
             <Routes>
-                <Route path="/" element={<About />} />
+                <Route path="/ReactApp-FinalProject/" element={<About />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/menu" element={<Menu />} />
                 <Route path="/movies" element={<Movies />} />

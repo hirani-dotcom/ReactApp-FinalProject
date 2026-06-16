@@ -30,11 +30,11 @@ const Footer = () => {
             <footer>
                 <div className="container">
                     <div className="row row__column">
-                        <a href="">
+                        <a>
                             <figure className="footer__logo">
                                 <img
                                     src={logo}
-                                    className="footer__logo--img no-cursor"
+                                    className="footer__logo--img"
                                 />
                             </figure>
                         </a>
@@ -42,7 +42,6 @@ const Footer = () => {
                             {user ? (
                                 <>
                                     <a
-                                        href=""
                                         className="footer__link"
                                         onClick={toMovies}
                                     >
@@ -51,7 +50,6 @@ const Footer = () => {
                                 </>
                             ) : (
                                 <a
-                                    href=""
                                     className="footer__link"
                                     onClick={toSignIn}
                                 >
@@ -59,7 +57,7 @@ const Footer = () => {
                                 </a>
                             )}
 
-                            <a href="" className="footer__link" onClick={toAbout}>About</a>
+                            <a className="footer__link" onClick={toAbout}>About</a>
                             <a className="footer__link no-cursor">Contact</a>
                             <a className="footer__link no-cursor">Legal</a>
                             <a className="footer__link no-cursor">Disclaimer</a>

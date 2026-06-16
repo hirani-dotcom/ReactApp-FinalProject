@@ -77,9 +77,8 @@ const Menu = () => {
                             ) : (
                                 <>
                                     <a
-                                        href=""
                                         className="menu__link"
-                                        onClick={toSignin}
+                                        onClick={() => {navigate("/signin")}}
                                     >
                                         Sign In
                                     </a>

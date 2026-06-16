@@ -1,4 +1,3 @@
-// AuthForm.jsx
 import { useState } from "react";
 import { useAuth } from "../component/context/AuthContext";
 import Movies from "./Movies";
@@ -24,7 +23,7 @@ export default function AuthForm() {
         let success = false;
 
         if (isRegistering) {
-            success = await register(email, password, formattedName);
+            success = await register(email, password, name);
         } else {
             success = await login(email, password);
         }
@@ -58,8 +57,8 @@ export default function AuthForm() {
                         </label>
                         <input
                             type="text"
-                            value={displayName}
-                            onChange={(e) => formattedName(e.target.value)}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             className="authform__container--input"
                         />
                     </div>
