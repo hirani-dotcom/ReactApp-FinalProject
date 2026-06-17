@@ -7,8 +7,6 @@ import { useAuth } from "./context/AuthContext";
 import { doSignOut } from "../firebase/firebase";
 
 const Nav = () => {
-    const { user, userData, error, setError, login, register, logout } =
-        useAuth();
 
     const navigate = useNavigate();
 
@@ -37,20 +35,18 @@ const Nav = () => {
             <div className="nav__container">
                 <img className="logo" src={logo} alt="" />
                 <ul className="nav__links">
-                    <li>
-                        {user ? 
+                    <li>                         
                         <>
                         <button className="nav__link reg-btn" onClick={toMovies}> Search Movies</button>
                         </> : <>
-                        <p> </p></>
-                        }
+                        <p> </p></>                        
                     </li>
                     <li>
-                        <a className="nav__link" onClick={toAbout}>
+                        <a className="nav__link reg-btn" onClick={toAbout}>
                             About
                         </a>
                     </li>
-                    <li>
+                    {/* <li>
                         {user ? (
                             <> <button onClick={() => { doSignOut(); navigate("/signout"); }} className="nav__link reg-btn logout" > {user.email[0].toUpperCase()} <span className="logout-text">Log Out</span> </button> </>
                         ) : (
@@ -63,7 +59,7 @@ const Nav = () => {
                                 </button>
                             </>
                         )}
-                    </li>
+                    </li> */}
                     <button
                         className="btn__menu menu--open"
                         onClick={toMenu}

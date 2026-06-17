@@ -90,19 +90,17 @@ const Movies = ({ isOpen, onClose }) => {
         }
     };
 
-    const formattedName = getFormattedUsername(user?.email);
+    // const formattedName = getFormattedUsername(user?.email);
 
     return (
         <section id="movies">
-            {user ? (
-                <>
                     <div className="container">
-                        <h2>
+                        {/* <h2>
                             Welcome back{" "}
                             <span className="purple">{formattedName}</span>
-                        </h2>
+                        </h2> */}
                         <h2>
-                            Find your All-Time Favorite Movies Here <br />
+                            Find your All-Time Favorite Movies here
                             with 🎬 Silver Screen World
                         </h2>
 
@@ -134,7 +132,7 @@ const Movies = ({ isOpen, onClose }) => {
                             </button>
                         </div>
 
-                        {error && <p className="error-message">{error}</p>}
+                        {/* {error && <p className="error-message">{error}</p>} */}
 
                         {/* Loading */}
                         {loading && (
@@ -234,12 +232,6 @@ const Movies = ({ isOpen, onClose }) => {
                             </div>
                         )}
                     </div>
-                </>
-            ) : (
-                <div className="container">
-                    <AuthForm />
-                </div>
-            )}
         </section>
     );
 };

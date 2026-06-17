@@ -18,8 +18,8 @@ const App = () => {
                 <Route path="/about" element={<About />} />
                 <Route path="/menu" element={<Menu />} />
                 <Route path="/movies" element={<Movies />} />
-                <Route path="/Signin" element={<AuthForm />} />
-                <Route path="/signout" element={<SignOutScreen />} />
+                {/* <Route path="/Signin" element={<AuthForm />} /> */}
+                {/* <Route path="/signout" element={<SignOutScreen />} /> */}
             </Routes>
             <Footer />
         </div>

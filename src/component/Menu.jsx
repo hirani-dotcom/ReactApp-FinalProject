@@ -50,20 +50,14 @@ const Menu = () => {
                             </a>
                         </li>
                         <li className="menu__list">
-                            {user ? (
-                                <>
-                                    <a
+                                                                <a
                                         className="menu__link"
                                         onClick={toMovies}
                                     >
                                         Movie Search
                                     </a>
-                                </>
-                            ) : (
-                                ""
-                            )}
                         </li>
-                        <li className="menu__list">
+                        {/* <li className="menu__list">
                             {user ? (
                                 <>
                                     <a
@@ -84,7 +78,7 @@ const Menu = () => {
                                     </a>
                                 </>
                             )}
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </section>

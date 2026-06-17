@@ -39,7 +39,7 @@ const Footer = () => {
                             </figure>
                         </a>
                         <div className="footer__list">
-                            {user ? (
+                            {/* {user ? (
                                 <>
                                     <a
                                         className="footer__link"
@@ -55,7 +55,7 @@ const Footer = () => {
                                 >
                                     Sign In
                                 </a>
-                            )}
+                            )} */}
 
                             <a className="footer__link" onClick={toAbout}>About</a>
                             <a className="footer__link no-cursor">Contact</a>
