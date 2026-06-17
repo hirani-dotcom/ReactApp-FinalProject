@@ -19,10 +19,13 @@ body {
 nav {
     height: 80px;
     display: flex;
+    height: 10vh;
+    background-color: #131111;
 }
 
 img {
-    width: 100%;
+    padding: 12px ;
+    margin: 0 auto;
 }
 
 p {
@@ -348,6 +351,7 @@ header {
 .container {
     padding: 56px;
     margin: 0 auto;
+    min-height: 60vh;
     width: 100%;
     max-width: 1200px;
     justify-content: center;
@@ -476,11 +480,11 @@ MOVIES
     bottom: 0;
     z-index: 100;
     height: 100%;
-    max-width: 1200px;
     margin: 0 auto;
     color: white;
     font-size: 16px;
     display: flex;
+    /* flex-direction: column; */
     justify-content: space-between;
     opacity: 1;
     transition: opacity 0.3s ease;
@@ -520,18 +524,24 @@ MOVIES
 
 .overlay__img {
     display: flex;
-    flex-direction: column;
-    margin: 10px;
-    cursor: not-allowed;
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
 }
 
 .overlay__detail {
     display: flex;
-    flex-direction: column;
     text-align: left;
-    width: 70%;
+    width: 50%;
+    margin: 0 auto;
     padding: 12px;
     overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.overlay__detail--wrapper {
+    display: flex;
+    flex-direction: column;
 }
 
 .overlay__title {
@@ -634,6 +644,11 @@ footer {
 .movie__title, .movie__year {
     font-size: medium;
 }
+
+.modal-overlay {
+    flex-direction: column;
+}
+
 }
 
 /* SMALL PHONES, LARGE SMARTPHONES */
@@ -675,11 +690,21 @@ footer {
     font-size: 14px;
 }
 
+.overlay__detail--wrapper {
+    margin: 0 auto;
+    padding: 12px;
+}
+
 .movie {
-    width: 50%;
+    width: 100%;
+}
+
+.movie__img {
+    width: 100%;
+    margin: 0 auto;
 }
 
 .movie__title, .movie__year {
-    font-size: small;
+    font-size: medium;
 }
 }
