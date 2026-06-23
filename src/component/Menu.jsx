@@ -42,26 +42,22 @@ const Menu = () => {
                     </button>
                     <ul className="menu__links menu__backdrop">
                         <li className="menu__list">
-                            <a
-                                className="menu__link"
-                                onClick={toAbout}
-                            >
+                            <a className="menu__link" onClick={toAbout}>
                                 About
                             </a>
                         </li>
                         <li className="menu__list">
-                                                                <a
-                                        className="menu__link"
-                                        onClick={toMovies}
-                                    >
-                                        Movie Search
-                                    </a>
+                            <a className="menu__link" onClick={toMovies}>
+                                Movie Search
+                            </a>
                         </li>
-                        {/* <li className="menu__list">
+                        <li className="menu__list">
                             {user ? (
                                 <>
                                     <a
-                                        onClick={() => { doSignOut(); navigate("/signout"); 
+                                        onClick={() => {
+                                            doSignOut();
+                                            navigate("/signout");
                                         }}
                                         className=" menu__link reg-btn"
                                     >
@@ -72,13 +68,15 @@ const Menu = () => {
                                 <>
                                     <a
                                         className="menu__link"
-                                        onClick={() => {navigate("/signin")}}
+                                        onClick={() => {
+                                            navigate("/signin");
+                                        }}
                                     >
                                         Sign In
                                     </a>
                                 </>
                             )}
-                        </li> */}
+                        </li>
                     </ul>
                 </div>
             </section>

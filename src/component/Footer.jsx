@@ -32,14 +32,11 @@ const Footer = () => {
                     <div className="row row__column">
                         <a>
                             <figure className="footer__logo">
-                                <img
-                                    src={logo}
-                                    className="footer__logo--img"
-                                />
+                                <img src={logo} className="footer__logo--img" />
                             </figure>
                         </a>
                         <div className="footer__list">
-                            {/* {user ? (
+                            {user ? (
                                 <>
                                     <a
                                         className="footer__link"
@@ -49,15 +46,14 @@ const Footer = () => {
                                     </a>
                                 </>
                             ) : (
-                                <a
-                                    className="footer__link"
-                                    onClick={toSignIn}
-                                >
+                                <a className="footer__link" onClick={toSignIn}>
                                     Sign In
                                 </a>
-                            )} */}
+                            )}
 
-                            <a className="footer__link" onClick={toAbout}>About</a>
+                            <a className="footer__link" onClick={toAbout}>
+                                About
+                            </a>
                             <a className="footer__link no-cursor">Contact</a>
                             <a className="footer__link no-cursor">Legal</a>
                             <a className="footer__link no-cursor">Disclaimer</a>

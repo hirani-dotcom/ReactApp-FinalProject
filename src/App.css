@@ -553,6 +553,7 @@ MOVIES
 .overlay__details--title {
     font-size: 16px;
     padding-bottom: 2px;
+    padding-right: 20px;
 }
 
 .overlay__info {
@@ -706,5 +707,22 @@ footer {
 
 .movie__title, .movie__year {
     font-size: medium;
+}
+
+.overlay__title {
+    font-size: 16px;
+}
+
+.overlay__details--title {
+    font-size: 12px;
+    padding-bottom: 2px;
+    padding-right: 20px;
+}
+
+.overlay__info {
+    color: #bbb999;
+    font-size: 12px;
+    font-style: italic;
+    padding-bottom: 8px;
 }
 }
